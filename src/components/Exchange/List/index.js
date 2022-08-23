@@ -1,8 +1,19 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { MainContext } from '../../../context';
 
 function Index() {
+  const { symbols } = useContext(MainContext)
+
   return (
-    <div>Index</div>
+    <div>
+      {/* {
+        symbols.map((symbol, i) => (
+          <div key={i}>
+            {symbol.symbol} = {symbol.currency}
+          </div>
+        ))
+      } */}
+    </div>
   )
 }
 

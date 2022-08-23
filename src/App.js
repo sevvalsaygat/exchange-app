@@ -1,6 +1,40 @@
+import { useState, useEffect } from 'react';
+import Home from './pages/Home';
+import { MainContext } from './context'
+import axios from 'axios';
+
 function App() {
+  const [exchanges, setExchanges] = useState([])
+  const [symbols, setSymbols] = useState([])
+
+  const data = {
+    exchanges,
+    setExchanges,
+    symbols,
+    setSymbols
+  }
+
+  useEffect(() => {
+    let config = {
+      headers: {
+        apikey: "7nxBZK48nQGa3RuERMErb3hn79Qjlzbz",
+      }
+    }
+    axios.get('https://api.apilayer.com/exchangerates_data/symbols', config)
+      .then((res) => {
+        const result = Object.entries(res.data.symbols).map(symbol => {
+          return {
+            symbol: symbol[0], currency: symbol[1]
+          }
+        })
+        setSymbols(result)
+      })
+  }, []);
+
   return (
-    <div></div>
+    <MainContext.Provider value={data}>
+      <Home />
+    </MainContext.Provider>
   );
 }
 
