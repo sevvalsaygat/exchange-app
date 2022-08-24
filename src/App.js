@@ -17,7 +17,7 @@ function App() {
   useEffect(() => {
     let config = {
       headers: {
-        apikey: "7nxBZK48nQGa3RuERMErb3hn79Qjlzbz",
+        apikey: "GKwKr2mvEJKblSQNVaP3VqIlaYpsPiml",
       }
     }
     axios.get('https://api.apilayer.com/exchangerates_data/symbols', config)
