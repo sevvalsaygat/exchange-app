@@ -23,8 +23,11 @@ function Index() {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <select {...register("to", { required: true })}>
+    <form className="mt-60 max-w-xl p-6 mx-auto bg-white rounded-md dark:bg-gray-800"
+      onSubmit={handleSubmit(onSubmit)}>
+      <select className='block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring'
+        {...register("to", { required: true })}>
+        <option value="">To</option>
         {
           symbols.map((symbol, i) => (
             <option value={symbol.symbol} key={i}>
@@ -33,7 +36,9 @@ function Index() {
           ))
         }
       </select>
-      <select {...register("from", { required: true })}>
+      <select className='block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring'
+        {...register("from", { required: true })}>
+        <option value="">From</option>
         {
           symbols.map((symbol, i) => (
             <option value={symbol.symbol} key={i}>
@@ -42,10 +47,13 @@ function Index() {
           ))
         }
       </select>
-      <input type='number'
+      <input className='block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring'
+        placeholder='Amount'
+        type='number'
         {...register("amount", { required: true, })}>
       </input>
-      <button type="submit">Create</button>
+      <button className='mt-5 float-right bg-gray-500 hover:bg-gray-700 text-white font-bold py-1 px-4 border border-gray-700 rounded'
+        type="submit">Create</button>
     </form>
   )
 }
